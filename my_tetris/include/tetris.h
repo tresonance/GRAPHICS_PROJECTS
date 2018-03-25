@@ -11,6 +11,11 @@
 #define FALSE 0
 #define BLOCK_SIZE 15
 
+#define BORDER 2
+#define BOTTOM_BORDER 3
+#define FREE 0
+#define BUSY 1
+
 #define UP 126 
 #define DOWN 125
 #define LEFT 123
@@ -51,6 +56,7 @@ typedef struct		s_piece
 	int				(*piece)[4];
 	int				pivot_local_x;
 	int				pivot_local_y;
+	int				visited[4][4];
 	t_color			color;
 }					t_piece;
 
@@ -65,7 +71,8 @@ typedef struct		s_board
 	e_enum			curr_bloc_num;
 	int				curr_piece_num;
 	t_color			arr_color[7];
-	int				move_down;
+	int				nbr_ipiece;
+	int				nbr_jpiece;
 	int				score;
 }					t_board;
 
@@ -92,13 +99,16 @@ void				display_board_on_window(t_board *b);
 /*
  *draw.c
  */
+void				init_flood_visited(int visited[4][4]);
+void				flood_draw_piece(t_piece *p, t_board *b, int pivot_local_x, int pivot_local_y, int board_x, int board_y, int visited[4][4], int value);
 void				draw_piece(int x, int y, t_piece *p, t_board *b);
-int					is_collision(int x, int y, t_piece *p, t_board *b);
+//int					is_collision(int x, int y, t_piece *p, t_board *b);
+
 /*
  * pixel.c
  */
 void				put_pixel(int x, int y, t_color color, t_env *e);
-void				put_box(int x, int y, t_piece *p, t_color color, t_board *b);
+//void				put_box(int x, int y, t_piece *p, t_color color, t_board *b);
 /*
  * destroy.c
  */
@@ -108,8 +118,8 @@ int					clear_env(t_board *b);
  *clear_piece.c
  */
 void				clear_piece(t_piece *p, int x, int y, t_board *b);
-void				clear_piece2(t_piece *p, int x, int y, t_board *b);
-void				flood_fill(t_board *b, int x, int y, int visited[HEIGHT][WIDTH], t_color to_check, t_color to_set);
+//void				clear_piece2(t_piece *p, int x, int y, t_board *b);
+
 /*
  *
  * event.c

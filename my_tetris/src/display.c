@@ -12,6 +12,7 @@ void				err_exit_free(char *msg, void **ptr)
 		ft_memdel((void**)ptr);
 	ft_putstr_fd(msg, 2);
 	exit(1);
+	return ;
 }
 
 
@@ -75,22 +76,21 @@ void				display_board_on_window(t_board *b)
 	char			*str;
 
 	j = -1;
-	step_j = 50;
+	step_j = 70;
 	step_i = 10;
-	while (++j < HEIGHT/BLOCK_SIZE)
+	while (++j < b->nbr_jpiece)
 	{
-		i = WIDTH/BLOCK_SIZE/2 - 1 ;
-		step_j += 20;
+		i = -1;
+		step_j += 13;
 		mlx_string_put(b->e->mlx, b->e->win, 10 , step_j, 0x00FEDC, "[");
 		step_i = 20;
-		while (++i < WIDTH/BLOCK_SIZE)
+		while (++i < b->nbr_ipiece)
 		{
 			str = ft_itoa(b->board[j][i]);
-			mlx_string_put(b->e->mlx, b->e->win, step_i , step_j, b->board[j][i] == 1 ? 0xFFFF00 : 0x00FEDC, str);
-			mlx_string_put(b->e->mlx, b->e->win, 10 + 10 * i + 5 , 250 + 10 * j, 0x000000, " ");
-			i += 1;
+			mlx_string_put(b->e->mlx, b->e->win, step_i , step_j, b->board[j][i] == 1 ? 0xFFFF00 : b->board[j][i] == BORDER ? 0xFF0000 : 0x676767, str);
+			//mlx_string_put(b->e->mlx, b->e->win, 10 + 10 * i + 5 , 250 + 10 * j, 0x000000, " ");
 			ft_strdel(&str);
-			step_i += 20;
+			step_i += 6;
 		}
 		mlx_string_put(b->e->mlx, b->e->win,step_i , step_j, 0x00FEDC, "]");
 		

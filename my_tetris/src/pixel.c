@@ -4,12 +4,12 @@ void			put_pixel(int x, int y, t_color color, t_env *e)
 {
 	int				index;
 
-	if (x >= 0  && y >= 0  && x < WIDTH - 2*BLOCK_SIZE  && y < HEIGHT- 2*BLOCK_SIZE)
+	if (x >= 0  && y >= 0  && x < WIDTH && y < HEIGHT)
 	{
 		index = y * e->size_line + (x * e->bpp/8);
-		e->pixel[index] = color.r;
+		e->pixel[index] = color.b;
 		e->pixel[++index] = color.g;
-		e->pixel[++index] = color.b;
+		e->pixel[++index] = color.r;
 	}
 }
 

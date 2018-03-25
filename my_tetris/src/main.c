@@ -15,6 +15,6 @@ int				main(void)
 	//mlx_hook(b->e->win, 2, 3, clear_env, &b->e);
 	mlx_hook(b->e->win, 2, (1L << 0), key_hook, &b->e);
 	mlx_loop(b->e->mlx);
-	display_board(b);
+	//display_board(b);
 	return (0);
 }

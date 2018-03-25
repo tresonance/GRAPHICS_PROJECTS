@@ -47,18 +47,16 @@ t_board				*init_board(void)
 	if (!(b = (t_board*)malloc(sizeof(t_board))))
 		err_exit("Unable to allocate memory");
 	b->e = init_mlx();
-	//b->pos_board_x = (int)WIDTH/2 - 2*(int)BLOCK_SIZE;
 	b->pos_board_x = 3 * (int)WIDTH/4 -  2*(int)BLOCK_SIZE;
-	//b->pos_board_y = 2*(int)BLOCK_SIZE + 1;
 	b->pos_board_y = 2*(int)BLOCK_SIZE + 1;
 	
 	init_all_pieces(b);
 	b->curr_piece = init_piece_data();
-	b->curr_bloc_num = J;
+	b->curr_bloc_num = S;
 	b->curr_piece_num = 0;
 	b->curr_piece->piece =  b->arr_piece[b->curr_bloc_num][b->curr_piece_num];
-	b->arr_color[0]= (t_color){255,0,0};
-	b->arr_color[1]= (t_color){255,250,0};
+	b->arr_color[0]= (t_color){255,5,10};
+	b->arr_color[1]= (t_color){255,250,10};
 	b->arr_color[2]= (t_color){255,30,250};
 	b->arr_color[3]= (t_color){100,255,250};
 	b->arr_color[4]= (t_color){20,255,140};
@@ -67,20 +65,22 @@ t_board				*init_board(void)
 	
 	//b->last_line = HEIGHT - 11*BLOCK_SIZE;
 	b->score = 0;
-	b->move_down = FALSE;
 	b->curr_piece->color = b->arr_color[b->curr_bloc_num];
 	//score_info(b);
+	b->nbr_ipiece = WIDTH/BLOCK_SIZE;
+	b->nbr_jpiece = HEIGHT/BLOCK_SIZE;
 	j = -1;
-	while(++j < HEIGHT/BLOCK_SIZE)
+	while(++j < b->nbr_jpiece)
 	{
-		i = WIDTH/BLOCK_SIZE/2;
-		while(++i < WIDTH/BLOCK_SIZE)
+		i = -1;
+		while(++i < b->nbr_ipiece)
 		{
-			if (i <= WIDTH/BLOCK_SIZE/2 + 2*BLOCK_SIZE/BLOCK_SIZE || i >=  WIDTH/BLOCK_SIZE - BLOCK_SIZE/BLOCK_SIZE
-				|| j >= HEIGHT/BLOCK_SIZE - 2 * BLOCK_SIZE/BLOCK_SIZE)
-				b->board[j][i] = 2;
+			if (i == 0 || i == b->nbr_ipiece - 1)
+				b->board[j][i] = BORDER;
+			else if ( j == b->nbr_jpiece - 1)
+				b->board[j][i] = BOTTOM_BORDER;
 			else
-				b->board[j][i] = 0;
+				b->board[j][i] = FREE;
 		}
 	}
 	return (b);

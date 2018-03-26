@@ -28,13 +28,22 @@ t_env					*init_mlx(void)
 t_piece				*init_piece_data(void)
 {
 	t_piece			*p;
+	int				i;
+	int				j;
 
 	if (!(p = (t_piece*)malloc(sizeof(t_piece))))
 		err_exit("Unable to allocate memory");
-	p->pivot_local_x = 1;
-	p->pivot_local_y = 2;
+	p->pivot_local_x = 2;
+	p->pivot_local_y = 1;
 	p->color = (t_color){255,255,255};
 	p->piece = NULL;
+	j = -1;
+	while (++j < 4)
+	{
+		i = -1;
+		while (++i < 4)
+			p->visited[j][i] = FREE;
+	}
 	return (p);
 }
 
@@ -52,7 +61,7 @@ t_board				*init_board(void)
 	
 	init_all_pieces(b);
 	b->curr_piece = init_piece_data();
-	b->curr_bloc_num = S;
+	b->curr_bloc_num = J;
 	b->curr_piece_num = 0;
 	b->curr_piece->piece =  b->arr_piece[b->curr_bloc_num][b->curr_piece_num];
 	b->arr_color[0]= (t_color){255,5,10};
@@ -61,7 +70,7 @@ t_board				*init_board(void)
 	b->arr_color[3]= (t_color){100,255,250};
 	b->arr_color[4]= (t_color){20,255,140};
 	b->arr_color[5]= (t_color){100,170,255};
-	b->arr_color[6]= (t_color){170,150,255};
+	b->arr_color[6]= (t_color){17,150,255};
 	
 	//b->last_line = HEIGHT - 11*BLOCK_SIZE;
 	b->score = 0;

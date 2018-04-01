@@ -1,1 +1,1 @@
-![alt tag](tetris.png)
+![alt tag](my_tetris.png)

@@ -1,1 +1,1 @@
-![alt tag](awesome.png)
+![alt tag](scene.png)

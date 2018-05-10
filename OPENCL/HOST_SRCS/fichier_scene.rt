@@ -1,0 +1,94 @@
+camera{
+pos: 0 0 -1
+lookat: 0 0 0
+}
+
+light{
+pos: 0 60 345
+light_type: 1
+dir: 0 1 0
+color: 0 1 1 1
+}
+
+light{
+pos: 0 60 45
+light_type: 0
+dir: 0 1 0
+color: 1 1 1 1
+}
+
+plane{
+pos: 0 0 180
+normal: 0 1 0
+material{1, {1 1 0.6 1}, 0.5 0.5}
+}
+
+plane{
+pos: 0 10 100
+normal: 0 0 1
+material{1, {1 0.2 0.5 1}, 0.5 0.5}
+}
+
+sphere{
+pos: 0 9 0
+radius: 28.5
+material{1, {1 1 0 1}, 0.5 0.5}
+}
+
+sphere{
+pos: 0 10 38
+radius: 20.8
+material{1, {0.2 1 0.5 1}, 0.5 0.5}
+}
+
+cylinder{
+pos: 0 0 30
+radius: 10.8
+dir: 0 1 0
+is_cut: 0
+cut_axe: 0 1 0
+cut_length: 12
+material{0, {0 1 0 1}, 0.7 0.5}
+}
+
+cylinder{
+pos: 0 20 30
+radius: 11.8
+dir: 0 1 0
+is_cut: 0
+cut_axe: 0 1 0
+cut_length: 12
+material{0, {0 0 1 1}, 0.7 0.5}
+}
+
+cone{
+pos: 0 20 30
+radius: 11
+dir: 0 1 0
+is_cut: 0
+cut_axe: 0 1 0
+cut_length: 12
+material{0, {0 1 1 1}, 0.2 0.5}
+}
+
+cone{
+pos: 0 20 70
+radius: 15
+dir: 0 1 0
+is_cut: 0
+cut_axe: 0 1 0
+cut_length: 5
+material{0, {0.5 0.7 0.4 1}, 0.7 0.5}
+}
+
+box{
+bottom_left: 3 10 17
+top_right: -44 -10 10
+material{0, {0 1 0.23 1}, 0.3 0.4}
+}
+
+box{
+bottom_left: -23 0 10
+top_right: 34 20 30
+material{0, {0.5 0.7 0.6 1}, 0.3 0.4}
+}

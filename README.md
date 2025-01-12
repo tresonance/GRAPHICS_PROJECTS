@@ -1,15 +1,14 @@
-# GRAPHIC : C/C++ PROJECTS
+####  TETRIS TETRIS: 
 
-~ ~ ~ O P E N C L :
-Open Computing Language
-parallel programming API
-
-~ ~ ~ O P E N G L : 
-open graphical language
-Awesome Graphical API
-
-~ ~ ~ SDL2 :
-Graphical environement I used for my program
+Use direction key: yo move piece
+Use Q or A to rotate or change piece 
 
 
- MATHS MATHS   AND   M A T H S
+```
+make re
+./tetris
+```
+![image tetris](imgs/azee.gif)
+
+
+

@@ -32,11 +32,11 @@ $(NAME): $(OBJ) $(HEAD)
 
 clean:
 	make -C libft/ clean
-	/bin/rm -f $(OBJ)
+	/bin/rm -f *.o libft/*.o src/*.o 
 
 fclean: clean
 	make -C libft/ fclean
-	/bin/rm -f $(NAME)
+	/bin/rm -f $(NAME) 
 
 re: fclean all
 

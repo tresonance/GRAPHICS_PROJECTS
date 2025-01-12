@@ -13,7 +13,7 @@ void			put_pixel(int x, int y, t_color color, t_env *e)
 	}
 }
 
-void			put_box(int x, int y, t_piece *p, t_color color, t_board *b)
+void			put_box(int x, int y, t_color color, t_board *b)
 {
 	int			i;
 	int			j;

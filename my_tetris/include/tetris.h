@@ -92,7 +92,7 @@ void				init_all_pieces(t_board *b);
  */
 void				err_exit(char *msg);
 void				err_exit_free(char *msg, void **ptr);
-void				display_piece(t_piece *p, t_board *b);
+void				display_piece(t_piece *p);
 void				display_piece2(t_board *b, int bloc, int nump);
 void				display_board(t_board *b);
 void				display_board_on_window(t_board *b);

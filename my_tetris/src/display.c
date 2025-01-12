@@ -16,7 +16,7 @@ void				err_exit_free(char *msg, void **ptr)
 }
 
 
-void				display_piece(t_piece *p, t_board *b)
+void				display_piece(t_piece *p)
 {
 	int				i;
 	int				j;

@@ -1,1 +1,0 @@
-![alt tag](scene.png)

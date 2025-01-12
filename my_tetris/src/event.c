@@ -58,7 +58,7 @@ int					is_piece_rotable(t_piece *p, t_board *b)
 	return (result);
 }
 
-int					is_piece_changeable(t_piece *p, t_board *b)
+int					is_piece_changeable( t_board *b)
 {
 	int				result;
 	t_piece			next_piece;;
@@ -99,7 +99,7 @@ int					key_hook(int key, t_board *b)
 		b->pos_board_x = b->pos_board_x + BLOCK_SIZE;
 	else if (key == A && is_piece_rotable(b->curr_piece, b) && (no_collision = TRUE))
 		rotate_piece(b);
-	else if (key == Q && is_piece_changeable(b->curr_piece, b) && (no_collision = TRUE))
+	else if (key == Q && is_piece_changeable( b) && (no_collision = TRUE))
 		change_piece(b);
 	if (no_collision == FALSE)
 		ft_putstr("C O L L I S I O N\n");

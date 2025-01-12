@@ -2,7 +2,7 @@
 
 int				main(void)
 {
-	t_piece		*p;
+	//t_piece		*p;
 	t_board		*b;
 
 	srand(time(NULL));
